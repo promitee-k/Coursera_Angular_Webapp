@@ -18,6 +18,8 @@ import { MatListModule } from '@angular/material/list';
 import { DishdetailsComponent } from './dishdetails/dishdetails.component';
 
 import { DishService } from './services/dish.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -25,7 +27,9 @@ import { DishService } from './services/dish.service';
   declarations: [
     AppComponent,
     MenuComponent,
-    DishdetailsComponent
+    DishdetailsComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
