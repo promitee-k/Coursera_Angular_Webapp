@@ -15,7 +15,7 @@ import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 
 import { MatListModule } from '@angular/material/list';
-import { DishdetailsComponent } from './dishdetails/dishdetails.component';
+import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -24,13 +24,15 @@ import { ContactComponent } from './contact/contact.component';
 
 import { DishService } from './services/dish.service';
 import {PromotionService} from './services/promotion.service';
+import{LeaderService} from './services/leader.service';
+
 import {AppRoutingModule} from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DishdetailsComponent,
+    DishdetailComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -51,7 +53,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
   
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    LeaderService
   ],
   bootstrap: [AppComponent]
 })
