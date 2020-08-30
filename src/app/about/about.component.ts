@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { leader } from '../shared/leader';
+import { Leader } from '../shared/leader';
 
 import { LeaderService } from '../services/leader.service';
 
@@ -10,7 +10,7 @@ import { LeaderService } from '../services/leader.service';
 })
 export class AboutComponent implements OnInit {
 
-  leaders: leader[];
+  leaders: Leader[];
 
   constructor( private leaderService: LeaderService) { }
 

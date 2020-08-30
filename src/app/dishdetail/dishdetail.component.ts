@@ -11,25 +11,23 @@ import { Location } from '@angular/common';
   styleUrls: ['./dishdetail.component.scss']
 })
 
-  //@Input()
-  //dish: Dish;
+  // @Input()
+  // dish: Dish;
   export class DishdetailComponent implements OnInit {
 
     dish: Dish;
-  
+
     constructor(private dishservice: DishService,
       private route: ActivatedRoute,
       private location: Location) { }
-  
     ngOnInit() {
 
       const id = +this.route.snapshot.params['id'];
       this.dish = this.dishservice.getDish('id');
     }
-  
     goBack(): void {
       this.location.back();
     }
-  
+
   }
 

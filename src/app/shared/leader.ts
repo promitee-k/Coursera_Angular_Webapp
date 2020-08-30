@@ -1,5 +1,4 @@
-
- export class leader {
+export class Leader {
       id: string;
       name: string;
       image: string;
@@ -9,4 +8,3 @@
       // tslint:disable-next-line:max-line-length
       description: string;
     }
-   

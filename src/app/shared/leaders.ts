@@ -1,6 +1,6 @@
-import { leader } from './leader';
+import { Leader } from './leader';
 
-export const LEADERS: leader[]  =
+export const LEADERS: Leader[]  =
     [
     {
         id: '0',
