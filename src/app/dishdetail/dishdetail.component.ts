@@ -23,7 +23,9 @@ import { Location } from '@angular/common';
     ngOnInit() {
 
       const id = +this.route.snapshot.params['id'];
-      this.dish = this.dishservice.getDish('id');
+     // this.dishservice.getDish.subsribe this.dish = ('id');
+       this.dishservice.getDishes().subscribe(dishes => this.dish);
+
     }
     goBack(): void {
       this.location.back();
