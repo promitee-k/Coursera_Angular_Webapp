@@ -5,6 +5,7 @@ import { Promotion } from '../shared/promotion';
 import { PromotionService } from '../services/promotion.service';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-home',

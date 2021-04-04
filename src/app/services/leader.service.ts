@@ -12,18 +12,6 @@ export class LeaderService {
 
   constructor() { }
 
-/*
-  getLeaders(): Promise <Leader[]> {
-    return Promise.resolve(LEADERS);
-  }
-  getDish(id: string): Promise<Leader> {
-    return Promise.resolve(LEADERS.filter((leader) => (leader.id === id))[0]);
-  }
-
-  getFeaturedLeader(): Promise<Leader> {
-    return Promise.resolve(LEADERS.filter((leader) => leader.featured)[0]);
-  }
-  */
  getLeaders(): Observable<Leader[]> {
   return of(LEADERS).pipe(delay(2000));
 }

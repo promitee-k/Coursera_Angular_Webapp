@@ -1,23 +1,23 @@
 <div class="container" fxLayout="row wrap" fxLayout.sm="column" fxLayout.xs="column"
   fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
-  <div fxFlex="100">
+  <div fxFlex="100" *ngIf="dish">
     <div>
-      <h3>{{dish.name | uppercase}}</h3>
+      <h3>{{ dish.name | uppercase }}</h3>
       <hr>
     </div>
   </div>
 
-  <div fxFlex="40">
-    <mat-card *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish">
+    <mat-card >
       <mat-card-header>
         <mat-card-title>
-          <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
+          <h3 >{{ dish.name | uppercase }}</h3>
         </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+      <img  mat-card-image src={{dish.image}} alt={{dish.name}}>
       <mat-card-content>
-        <p>{{dish.description}}
+        <p >{{ dish.description }}
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -31,10 +31,10 @@
     </mat-card>
   </div>
 
-  <div fxFlex="40">
+  <div fxFlex="40" *ngIf="dish">
     <mat-list>
       <h1 matSubheader>Comments</h1>
-      <mat-list-item *ngFor="let comment of comments">
+      <mat-list-item *ngFor="let comment of dish.comments">
         <p matLine> {{comment.comment}}
         </p>
         <p matLine> {{comment.rating}}
@@ -42,8 +42,39 @@
         <p matLine> {{comment.author}} {{comment.date | date}}
         </p>
       </mat-list-item>
-
     </mat-list>
+    <h3>Add comments</h3>
 
+    <form novalidate [formGroup]="commentForm" #cform="ngForm" (ngSubmit)="onSubmit()">
+      <p>
+            <!-- <p>{{ commentForm.value | json }} {{ commentForm.status | json }}</p> -->
+
+        <!-- <mat-slider></mat-slider> -->
+        <mat-form-field class="form-size">
+          <input matInput formControlName="author" placeholder="Name" type="text" required>
+          <mat-error *ngIf="formErrors.author">{{formErrors.author}}</mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field class="half-width"> -->
+          <!-- <mat-slider tickInterval="auto"></mat-slider> -->
+          <mat-form-field class="form-size">
+          <mat-slider thumbLabel
+          
+          [displayWith]="formatLabel"
+          tickInterval="1"
+          min="1"
+          max="5">
+          <input matInput formControlName="rating" placeholder="Rating" type="number" required></mat-slider>
+          </mat-form-field>
+          <!-- <input matInput formControlName="rating" placeholder="Rating" type="number" required>
+          <mat-error *ngIf="formErrors.rating">{{formErrors.rating}}</mat-error> -->
+        <!-- </mat-form-field> -->
+        <mat-form-field class="form-size">
+          <input matInput formControlName="comment" placeholder="Comment" type="text" required>
+          <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
+        </mat-form-field>
+
+      </p>
+      <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    </form>
   </div>
 </div>
