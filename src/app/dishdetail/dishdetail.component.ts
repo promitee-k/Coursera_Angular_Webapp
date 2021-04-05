@@ -28,6 +28,7 @@ import { FormControl } from '@angular/forms';
     comments: Comment[];
     commentForm: FormGroup;
     slider: MatSlider;
+    d = new Date();
     
  
 
@@ -88,6 +89,7 @@ import { FormControl } from '@angular/forms';
         author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]], 
         rating:[5, Validators.required],      
         comment: ['', Validators.required],
+        date: this.d.toDateString(),
       });
       this.commentForm.valueChanges                                           // using ValueChanges observable
         .subscribe(data => this.onValueChanged(data));
