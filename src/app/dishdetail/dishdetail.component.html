@@ -53,21 +53,16 @@
         <mat-form-field class="form-size">
           <input matInput formControlName="author" placeholder="Name" type="text" required>
           <mat-error *ngIf="formErrors.author">{{formErrors.author}}</mat-error>
-        </mat-form-field>
-        <!-- <mat-form-field class="half-width"> -->
-          <!-- <mat-slider tickInterval="auto"></mat-slider> -->
-          <mat-form-field class="form-size">
-          <mat-slider thumbLabel
-          
+        </mat-form-field>   
+        <!-- Slider for rating -->
+          <mat-slider class="form-size" thumbLabel        
           [displayWith]="formatLabel"
           tickInterval="1"
           min="1"
-          max="5">
-          <input matInput formControlName="rating" placeholder="Rating" type="number" required></mat-slider>
-          </mat-form-field>
-          <!-- <input matInput formControlName="rating" placeholder="Rating" type="number" required>
-          <mat-error *ngIf="formErrors.rating">{{formErrors.rating}}</mat-error> -->
-        <!-- </mat-form-field> -->
+          max="5"
+          formControlName="rating">
+         </mat-slider>
+          <mat-error *ngIf="formErrors.rating">{{formErrors.rating}}</mat-error>  
         <mat-form-field class="form-size">
           <input matInput formControlName="comment" placeholder="Comment" type="text" required>
           <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>

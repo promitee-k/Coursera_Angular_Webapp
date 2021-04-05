@@ -18,6 +18,7 @@ import { FormControl } from '@angular/forms';
   export class DishdetailComponent implements OnInit {
 
     @ViewChild('cform') commentFormDirective;
+   
 
     dish: Dish;
     dishIds: string[];
@@ -31,12 +32,17 @@ import { FormControl } from '@angular/forms';
  
 
     formErrors={
+      author:'',
       rating:'',
       comment:'',
-      author:'',
      
     }
     validationMessages = {
+      'author':{
+        'required':'Author is required',
+        'minLength':'Must be atleast 2 characters',
+        'maxlength':'Exceeds maximum length'
+      },
       'rating':{
         'required':'Rating is required',
         
@@ -44,11 +50,7 @@ import { FormControl } from '@angular/forms';
       'comment':{
         'required':'Comment is required'
       },
-      'author':{
-        'required':'Author is required',
-        'minLength' : 'Must be atleast 2 characters',
-        'maxlength' : 'Exceeds maximum length'
-      },
+ 
      
     };
     constructor(private dishservice: DishService,
@@ -84,7 +86,7 @@ import { FormControl } from '@angular/forms';
     createForm() {
       this.commentForm = this.fb.group({
         author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]], 
-        rating:['', Validators.required],      
+        rating:[5, Validators.required],      
         comment: ['', Validators.required],
       });
       this.commentForm.valueChanges                                           // using ValueChanges observable
@@ -112,6 +114,8 @@ import { FormControl } from '@angular/forms';
     }
     onSubmit() {
       this.comment = this.commentForm.value;
+      console.log(this.comment);
+      this.dish.comments.push(this.comment);
       this.commentForm.reset({
         author:'',
         comment:'',
